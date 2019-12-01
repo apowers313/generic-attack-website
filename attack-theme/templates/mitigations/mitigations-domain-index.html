@@ -13,8 +13,8 @@
 <!--stopindex-->
     <button class="btn btn-default dropdown-toggle heading-dropdown mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{'MOBILE' if parsed.domain == 'mobile' else 'ENTERPRISE'}}</button> 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/mitigations/enterprise">ENTERPRISE</a>
-        <a class="dropdown-item" href="/mitigations/mobile">MOBILE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/mitigations/enterprise">ENTERPRISE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/mitigations/mobile">MOBILE</a>
     </div>
     <div class="group-nav-desktop-view">
         {{ navigation.sidenav(parsed.side_menu_data, output_file) }}
@@ -29,8 +29,8 @@
     {{ super () }}
     <!--stopindex-->
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/mitigations/enterprise/">Mitigations</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/mitigations/enterprise/">Mitigations</a></li>
         {% if parsed.domain == "mobile" %}
         <li class="breadcrumb-item">Mobile</li>
         {% else %}
@@ -64,10 +64,10 @@
                             {% for row in parsed.mitigation_table %}
                                 <tr>
                                     <td>
-                                        <a href="/mitigations/{{row.id}}"> {{row.id}} </a>
+                                        <a href="{{ SITEURL }}/mitigations/{{row.id}}"> {{row.id}} </a>
                                     </td>
                                     <td>
-                                        <a href="/mitigations/{{row.id}}"> {{row.name}} </a>
+                                        <a href="{{ SITEURL }}/mitigations/{{row.id}}"> {{row.name}} </a>
                                     </td>
                                     <td>
                                         {% if row.deprecated %}
@@ -90,5 +90,5 @@
 {% block scripts %}
     {{ super() }}
     <!--SCRIPTS-->
-    <script src="/theme/scripts/navigation.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/navigation.js"></script>
 {% endblock %} 

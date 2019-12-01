@@ -6,9 +6,9 @@
     {% for curr_article in articles %}
         {% if curr_article.template == 'resources/update-post' %}
             {% if article.title == curr_article.title %}
-                <a class="nav-link side active show" id="v-overview-tab"  href={{ "/" + curr_article.save_as }} aria-controls="v-overview" aria-selected="false">{{ curr_article.date|strftime("%B %Y") }}</a>
+                <a class="nav-link side active show" id="v-overview-tab"  href={{ SITEURL }}{{ "/" + curr_article.save_as }} aria-controls="v-overview" aria-selected="false">{{ curr_article.date|strftime("%B %Y") }}</a>
             {% else %}    
-                <a class="nav-link side" id="v-overview-tab"  href={{ "/" + curr_article.save_as }} aria-controls="v-overview" aria-selected="false">{{ curr_article.date|strftime("%B %Y") }}</a>            
+                <a class="nav-link side" id="v-overview-tab"  href={{ SITEURL }}{{ "/" + curr_article.save_as }} aria-controls="v-overview" aria-selected="false">{{ curr_article.date|strftime("%B %Y") }}</a>            
             {% endif %}
         {% endif %}
     {% endfor %}
@@ -16,9 +16,9 @@
 {% block innerright %}
 {{ super () }}
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/resources/">Resources</a></li>
-        <li class="breadcrumb-item"><a href="/resources/updates">Updates</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/resources/">Resources</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/resources/updates">Updates</a></li>
         <li class="breadcrumb-item">{{ article.date|strftime("%B %Y") }}</a></li>
     </ol>
     <div class="blog-post p-3">

@@ -10,8 +10,8 @@
                     <div class="dropdown-divider"></div>
                     {% endif %}
                     <h6 class="dropdown-header">{{layer.domain | capitalize}} Layer</h6>
-                    <a class="dropdown-item" href="/{{page_type}}/{{attack_id}}/{{layer.filename}}" download target="_blank">download</a>
-                    <a class="dropdown-item" href="#" id="view-layer-on-navigator-{{layer.domain}}" target="_blank">view <img width="10" src="/theme/images/external-site-dark.jpeg"></a>
+                    <a class="dropdown-item" href="{{ SITEURL }}/{{page_type}}/{{attack_id}}/{{layer.filename}}" download target="_blank">download</a>
+                    <a class="dropdown-item" href="#" id="view-layer-on-navigator-{{layer.domain}}" target="_blank">view <img width="10" src="{{ SITEURL }}/theme/images/external-site-dark.jpeg"></a>
                     <script>
                         if (window.location.protocol == "https:") { //view on navigator only works when this site is hosted on HTTPS
                             layerURL = window.location.protocol + "//" + window.location.host + "/{{page_type}}/{{attack_id}}/{{layer.filename}}";

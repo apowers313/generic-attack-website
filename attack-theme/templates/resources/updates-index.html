@@ -9,10 +9,10 @@
         {% for article in articles %}
             {% if article.template == 'resources/update-post' %}
                 {% if found.found %}
-                    <a class="nav-link side active show" id="v-overview-tab"  href="{{ "/" + article.save_as }}" aria-controls="v-overview" aria-selected="false">{{ article.date|strftime("%B %Y") }}</a>
+                    <a class="nav-link side active show" id="v-overview-tab"  href="{{ SITEURL }}{{ "/" + article.save_as }}" aria-controls="v-overview" aria-selected="false">{{ article.date|strftime("%B %Y") }}</a>
                     {% if found.update({'found': False}) -%}{% endif %}
                 {% else %}
-                    <a class="nav-link side" id="v-overview-tab"  href="{{ "/" + article.save_as }}" aria-controls="v-overview" aria-selected="false">{{ article.date|strftime("%B %Y") }}</a>
+                    <a class="nav-link side" id="v-overview-tab"  href="{{ SITEURL }}{{ "/" + article.save_as }}" aria-controls="v-overview" aria-selected="false">{{ article.date|strftime("%B %Y") }}</a>
                 {% endif %}
             {% endif %}
         {% endfor %}
@@ -21,8 +21,8 @@
 {% block innerright %}
 {{ super () }}
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/resources/">Resources</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/resources/">Resources</a></li>
         <li class="breadcrumb-item">Updates</li>
     </ol>
     {% if articles %}

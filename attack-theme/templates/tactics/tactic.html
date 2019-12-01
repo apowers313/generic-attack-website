@@ -25,9 +25,9 @@
         <button class="btn btn-default dropdown-toggle heading-dropdown mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PRE-ATT&CK</button>
     {% endif %}
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/tactics/enterprise">ENTERPRISE</a>
-        <a class="dropdown-item" href="/tactics/mobile">MOBILE</a>
-        <a class="dropdown-item" href="/tactics/pre">PRE-ATT&CK</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/tactics/enterprise">ENTERPRISE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/tactics/mobile">MOBILE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/tactics/pre">PRE-ATT&CK</a>
     </div>
     <div class="group-nav-desktop-view">
         {{ navigation.sidenav(parsed.side_menu_data, output_file) }}
@@ -38,20 +38,20 @@
 {% block innerright %}
     {{ super () }}
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
         {% if parsed.domain == 'enterprise' %}
-            <li class="breadcrumb-item"><a href="/tactics/enterprise">Tactics</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/tactics/enterprise">Tactics</a></li>
         {% elif parsed.domain == 'pre' %}
-            <li class="breadcrumb-item"><a href="/tactics/pre">Tactics</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/tactics/pre">Tactics</a></li>
         {% else %}
-            <li class="breadcrumb-item"><a href="/tactics/mobile">Tactics</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/tactics/mobile">Tactics</a></li>
         {% endif %}
         {% if parsed.domain == 'enterprise' %}
-            <li class="breadcrumb-item"><a href="/tactics/{{parsed.domain}}">Enterprise</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/tactics/{{parsed.domain}}">Enterprise</a></li>
         {% elif parsed.domain == 'pre' %}
-            <li class="breadcrumb-item"><a href="/tactics/{{parsed.domain}}">PRE-ATT&CK</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/tactics/{{parsed.domain}}">PRE-ATT&CK</a></li>
         {% else %}
-            <li class="breadcrumb-item"><a href="/tactics/{{parsed.domain}}">Mobile</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/tactics/{{parsed.domain}}">Mobile</a></li>
         {% endif %}
         <li class="breadcrumb-item">{{parsed.name}}</li>
     </ol>
@@ -88,10 +88,10 @@
                             {% for row in parsed.techniques_table %}
                                 <tr>
                                     <td>
-                                        <a class="technique-mapping" id="v-{{row.technique_name}}-{{parsed.name_lower}}-tab" href="/techniques/{{row.tid}}"> {{row.tid}} </a>
+                                        <a class="technique-mapping" id="v-{{row.technique_name}}-{{parsed.name_lower}}-tab" href="{{ SITEURL }}/techniques/{{row.tid}}"> {{row.tid}} </a>
                                     </td>
                                     <td>
-                                        <a class="technique-mapping" id="v-{{row.technique_name}}-{{parsed.name_lower}}-tab" href="/techniques/{{row.tid}}"> {{row.technique_name}} </a>
+                                        <a class="technique-mapping" id="v-{{row.technique_name}}-{{parsed.name_lower}}-tab" href="{{ SITEURL }}/techniques/{{row.tid}}"> {{row.technique_name}} </a>
                                     </td>
                                     <td>
                                         {{row.descr}}
@@ -110,5 +110,5 @@
 {% block scripts %}
     {{ super() }}
     <!--SCRIPTS-->
-    <script src="/theme/scripts/navigation.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/navigation.js"></script>
 {% endblock %}

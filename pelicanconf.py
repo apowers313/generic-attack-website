@@ -10,7 +10,7 @@ PLUGINS = ['assets']
 
 AUTHOR = 'MITRE'
 SITENAME = 'ATT&CK'
-SITEURL = ''
+SITEURL = 'https://apowers313.github.io/generic-attack'
 
 PATH = 'content'
 

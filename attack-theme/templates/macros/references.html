@@ -2,7 +2,7 @@
 {% for ref in refs %}
     {% if ref.url %}
         <sup>
-            <a aria-describedby="qtip-{{ref.number}}" href="{{ref.url}}" target="_blank" data-hasqtip="{{ref.number}}">[{{ref.number}}]</a>
+            <a aria-describedby="qtip-{{ref.number}}" href="{{ SITEURL }}{{ref.url}}" target="_blank" data-hasqtip="{{ref.number}}">[{{ref.number}}]</a>
         </sup>
     {% else %}
         <sup>

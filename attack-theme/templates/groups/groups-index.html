@@ -19,7 +19,7 @@
     {{ super () }}
     <!--stopindex-->
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
         <li class="breadcrumb-item">Groups</li>
     </ol>
     <div class="tab-pane fade show active" id="v-{{pages.title}}" role="tabpanel" aria-labelledby="v-{{pages.title}}-tab"></div>
@@ -47,7 +47,7 @@
                                 {% for row in parsed.groups_table %}
                                     <tr>
                                         <td>
-                                            <a href="/groups/{{row.id|upper}}"> {{row.name}} </a>
+                                            <a href="{{ SITEURL }}/groups/{{row.id|upper}}"> {{row.name}} </a>
                                         </td>
                                         <td>
                                             {{row.aliases_list|join(", ")}}
@@ -73,5 +73,5 @@
 {% block scripts %}
     {{ super() }}
     <!--SCRIPTS-->
-    <script src="/theme/scripts/navigation.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/navigation.js"></script>
 {% endblock %}

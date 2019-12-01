@@ -6,8 +6,8 @@
     <div class="container">
         <div class="container-fluid">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/resources/">Resources</a></li>
+                <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ SITEURL }}/resources/">Resources</a></li>
                 <li class="breadcrumb-item">{{ page.title }}</li>
             </ol>
             <div class="blog-post p-3">
@@ -17,4 +17,4 @@
         </div>
     </div>
 {% endblock %} {% block scripts %} {{ super () }}
-<script src="/theme/scripts/tables.js"></script>{% endblock %}
+<script src="{{ SITEURL }}/theme/scripts/tables.js"></script>{% endblock %}

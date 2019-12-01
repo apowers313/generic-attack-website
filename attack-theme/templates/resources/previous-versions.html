@@ -8,8 +8,8 @@
 <!--stopindex-->
 <div class="container">
     <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/resources">Resources</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/resources">Resources</a></li>
             <li class="breadcrumb-item">Previous Versions</li>
     </ol>
 </div>
@@ -23,7 +23,7 @@
                 </p>
                 <ul>
                     {% for version in parsed.versions %}
-                    <li><a href="/previous/{{version.path}}">{{version.date_start}} - {{version.date_end}}</a> (<a href="/resources/updates/{{version.changelog}}">Updates</a>)</li>
+                    <li><a href="{{ SITEURL }}/previous/{{version.path}}">{{version.date_start}} - {{version.date_end}}</a> (<a href="{{ SITEURL }}/resources/updates/{{version.changelog}}">Updates</a>)</li>
                     {% endfor %}
                 </ul>
             </div>

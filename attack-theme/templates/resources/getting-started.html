@@ -7,8 +7,8 @@
 <!--stopindex-->
 <div class="container">
     <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/resources">Resources</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/resources">Resources</a></li>
             <li class="breadcrumb-item">Getting Started</li>
     </ol>
 </div>
@@ -91,7 +91,7 @@
                                          <div class="mb-2"><a href="https://www.youtube.com/watch?v=p7Hyd7d9k-c">ATT&CKing the Status Quo Presentation</a>: The latter part of this presentation provides an introduction to using ATT&CK to create analytics. <a href="https://www.slideshare.net/KatieNickels/bsideslv-2018-katie-nickels-and-john-wunder-attcking-the-status-quo">Slides are also available</a>.</div>
                                     </li>
                                     <li>
-                                        <div class="mb-2"> Many people in the ATT&CK community are doing excellent work with analytics and detection. We encourage you to take a look at the  <a href="/resources/attackcon/">ATT&CKcon 2018 presentations</a> for ideas. You can also follow us on Twitter at <a href="https://twitter.com/MITREattack">@MITREattack</a>, since we sometimes retweet information about community projects that could help ATT&CK users.</div>
+                                        <div class="mb-2"> Many people in the ATT&CK community are doing excellent work with analytics and detection. We encourage you to take a look at the  <a href="{{ SITEURL }}/resources/attackcon/">ATT&CKcon 2018 presentations</a> for ideas. You can also follow us on Twitter at <a href="https://twitter.com/MITREattack">@MITREattack</a>, since we sometimes retweet information about community projects that could help ATT&CK users.</div>
                                     </li>
                                 </ul>
                             </div>
@@ -126,7 +126,7 @@
                                         <div class="mb-2"><a href="https://www.pscp.tv/w/1yoKMVDjbrkGQ">ATT&CKing with Threat Intelligence Presentation</a>: This presentation provides perspective on how to use threat intelligence for ATT&CK-based adversary emulation. <a href="https://www.slideshare.net/ChristopherKorban/attcking-with-threat-intelligence">Slides are also available</a>.</div>
                                     </li>
                                     <li>
-                                        <div class="mb-2"><a href="https://youtu.be/pcclNdwG8Vs">ATT&CK Navigator Use Case for Threat Intelligence</a>: This demo provides an overview of the ATT&CK Navigator as well as a threat intelligence use case for how to compare group behaviors. A corresponding written tutorial on comparing Navigator layers is <a href="/docs/Comparing_Layers_in_Navigator.pdf">available here</a>.</div>
+                                        <div class="mb-2"><a href="https://youtu.be/pcclNdwG8Vs">ATT&CK Navigator Use Case for Threat Intelligence</a>: This demo provides an overview of the ATT&CK Navigator as well as a threat intelligence use case for how to compare group behaviors. A corresponding written tutorial on comparing Navigator layers is <a href="{{ SITEURL }}/docs/Comparing_Layers_in_Navigator.pdf">available here</a>.</div>
                                     </li>
                                 </ul>
                             </div>
@@ -161,7 +161,7 @@
                                         <div class="mb-2"><a href="https://www.mitre.org/publications/technical-papers/finding-cyber-threats-with-attck-based-analytics">Finding Cyber Threats with ATT&CK-Based Analytics</a>: Presents a methodology for using ATT&CK to build, test, and refine behavioral-based analytic detection capabilities.</div>
                                     </li>
                                     <li>
-                                        <div class="mb-2"><a href="/resources/adversary-emulation-plans">Adversary Emulation Plans</a>: To showcase the practical use of ATT&CK for offensive operators and defenders, MITRE created Adversary Emulation Plans. We previously released <a href="/docs/APT3_Adversary_Emulation_Plan.pdf">a plan for APT3</a> (as well as <a href="/docs/APT3_Adversary_Emulation_Field_Manual.xlsx">an accompanying field manual</a>) and anticipate that we will release additional plans in the future.</div>
+                                        <div class="mb-2"><a href="{{ SITEURL }}/resources/adversary-emulation-plans">Adversary Emulation Plans</a>: To showcase the practical use of ATT&CK for offensive operators and defenders, MITRE created Adversary Emulation Plans. We previously released <a href="{{ SITEURL }}/docs/APT3_Adversary_Emulation_Plan.pdf">a plan for APT3</a> (as well as <a href="{{ SITEURL }}/docs/APT3_Adversary_Emulation_Field_Manual.xlsx">an accompanying field manual</a>) and anticipate that we will release additional plans in the future.</div>
                                     </li>
                                     <li>
                                         <div class="mb-2"><a href="https://github.com/mitre/caldera">CALDERA</a>: CALDERA is an automated adversary emulation system that performs post-compromise adversarial behavior within Windows Enterprise networks. It generates plans using a pre-configured adversary model based on ATT&CK. <a href="https://www.youtube.com/watch?v=gTGnHXgqZCo">This presentation from BSides Charm</a> provides an overview of CALDERA. </div>
@@ -217,7 +217,7 @@
                 </p>
                 <ul>
                     <li>
-                        <div class="mb-2"><a href="/resources/working-with-attack">Interfaces for Working with ATT&CK</a>: This page describes how you can programmatically access ATT&CK content using STIX/TAXII.</div>
+                        <div class="mb-2"><a href="{{ SITEURL }}/resources/working-with-attack">Interfaces for Working with ATT&CK</a>: This page describes how you can programmatically access ATT&CK content using STIX/TAXII.</div>
                     </li>
                     <li>
                         <div class="mb-2"><a href="https://github.com/mitre-attack/attack-navigator">ATT&CK Navigator</a>: The ATT&CK Navigator is designed to provide basic navigation and annotation of ATT&CK matrices. You can use the Navigator to visualize defensive coverage, your red/blue team planning, or anything else you what to do with ATT&CK. If you want to get started immediately, a hosted instance is available <a href="https://mitre-attack.github.io/attack-navigator">here</a>.</div>
@@ -238,10 +238,10 @@
                         <div class="mb-2"><a href="https://twitter.com/mitreattack">Twitter: Follow us at @MITREattack</a> to hear about our latest updates and what community members are doing with ATT&CK.</div>
                     </li>
                     <li>
-                        <div class="mb-2"><a href="/resources/attackcon/">ATT&CKcon 2018 Presentations</a>: In October 2018, we held the first-ever ATT&CKcon at MITRE’s McLean campus. Check out <a href="/resources/attackcon/">the presentations</a> for ideas on how the community is using ATT&CK as well as <a href="https://medium.com/mitre-attack/attackcon-2018-501d62566233">the blog post about the event</a>.</div>
+                        <div class="mb-2"><a href="{{ SITEURL }}/resources/attackcon/">ATT&CKcon 2018 Presentations</a>: In October 2018, we held the first-ever ATT&CKcon at MITRE’s McLean campus. Check out <a href="{{ SITEURL }}/resources/attackcon/">the presentations</a> for ideas on how the community is using ATT&CK as well as <a href="https://medium.com/mitre-attack/attackcon-2018-501d62566233">the blog post about the event</a>.</div>
                     </li>
                     <li>
-                        <div class="mb-2"><a href="/resources/contribute/">Contribute to ATT&CK</a>: We rely on the community to help us improve ATT&CK. If you want to contribute, <a href="/resources/contribute/">here’s how to reach out and what we’re looking for</a>.</div>
+                        <div class="mb-2"><a href="{{ SITEURL }}/resources/contribute/">Contribute to ATT&CK</a>: We rely on the community to help us improve ATT&CK. If you want to contribute, <a href="{{ SITEURL }}/resources/contribute/">here’s how to reach out and what we’re looking for</a>.</div>
                     </li>
                 </ul>
             </div>

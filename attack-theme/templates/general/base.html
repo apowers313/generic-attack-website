@@ -1,6 +1,6 @@
 {% set BANNER_ENABLED = "false" %}
 {% set BANNER_MESSAGE = "<a href='https://www.mitre.org/attackcon-streamed-live' target='_blank'> Register to stream ATT&CKcon 2.0 October 29-30</a>" %}
-{% set NAVIGATION_MENU = [['/matrices/', 'matrices', 'Matrices'], ['/tactics/', 'tactics', 'Tactics'], ['/techniques/', 'techniques', 'Techniques'], ['/mitigations/', 'mitigations', 'Mitigations'], ['/groups/', 'groups', 'Groups'], ['/software/', 'software', 'Software'], ['/resources/', 'resources', 'Resources'], ['https://medium.com/mitre-attack/', 'blog', 'Blog'], ['/resources/contribute', 'contribute', 'Contribute']] -%}
+{% set NAVIGATION_MENU = [['/matrices/', 'matrices', 'Matrices'], ['/tactics/', 'tactics', 'Tactics'], ['/techniques/', 'techniques', 'Techniques'], ['/mitigations/', 'mitigations', 'Mitigations'], ['/groups/', 'groups', 'Groups'], ['/software/', 'software', 'Software']] -%}
 {% set DOMAINS = [['PRE-ATT&CK', 'pre'], ['Enterprise', 'enterprise'], ['Mobile', 'mobile']] -%}
 {% set active_page = active_page|default('index') -%}
 {% set title = title|default('MITRE ATT&CK&trade;') -%}
@@ -13,11 +13,11 @@
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel='shortcut icon' href='/theme/favicon.ico' type='image/x-icon'>
+        <link rel='shortcut icon' href='{{ SITEURL }}/theme/favicon.ico' type='image/x-icon'>
         <title>{{ title }}</title>
         <!-- Bootstrap CSS -->
-        <link rel='stylesheet' href='/theme/style/bootstrap.min.css' />
-        <link rel='stylesheet' href='/theme/style/bootstrap-glyphicon.min.css' />
+        <link rel='stylesheet' href='{{ SITEURL }}/theme/style/bootstrap.min.css' />
+        <link rel='stylesheet' href='{{ SITEURL }}/theme/style/bootstrap-glyphicon.min.css' />
         {% assets "style/style.scss", filters="pyscss", output="style.min.css" %}
         <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ ASSET_URL }}">
         {% endassets %}
@@ -29,7 +29,7 @@
 <header>
     {% block nav %}    
         <nav class='navbar navbar-expand-lg navbar-dark fixed-top'>
-            <a class='navbar-brand' href='/'><img src="/theme/images/mitre_attack.png" height="50px"/></a>
+            <a class='navbar-brand' href='{{ SITEURL }}/'><img src="{{ SITEURL }}/theme/images/attack.png" height="50px"/></a>
             <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarCollapse'
                     aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation'>
                 <span class='navbar-toggler-icon' onclick="search('')"></span>
@@ -39,41 +39,41 @@
                     {% for href, id, caption in NAVIGATION_MENU %}
                         {% if "Tactics" == caption or "Techniques" == caption or "Mitigations" == caption %}
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ href|e }}" id="navbarDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" href="{{ SITEURL }}{{ href|e }}" id="navbarDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <b>{{ caption|e }}</b>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     {% for domain, endpoint in DOMAINS %}
                                         {% if "Tactics" == caption or "Techniques" == caption or ("Mitigations" == caption and "PRE-ATT&CK" != domain) %}
-                                            <a class="dropdown-item" href="{{href}}{{ endpoint }}">{{ domain }}</a>
+                                            <a class="dropdown-item" href="{{ SITEURL }}{{href}}{{ endpoint }}">{{ domain }}</a>
                                         {% endif %}
                                     {% endfor %}
                                 </div>
                             </li>
                         {% elif "Resources" == caption %}
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ href|e }}" id="navbarDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" href="{{ SITEURL }}{{ href|e }}" id="navbarDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <b>{{ caption|e }}</b>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/resources/">General Information</a>
-                                    <a class="dropdown-item" href="/resources/getting-started/">Getting Started</a>
-                                    <a class="dropdown-item" href="/resources/attackcon/">ATT&CKcon</a>
-                                    <a class="dropdown-item" href="/resources/working-with-attack/">Working with ATT&CK</a>
-                                    <a class="dropdown-item" href="/resources/faq/">FAQ</a>
-                                    <a class="dropdown-item" href="/resources/updates/">Updates</a>
-                                    <a class="dropdown-item" href="/resources/previous-versions/">Previous Versions</a>
-                                    <a class="dropdown-item" href="/resources/related-projects/">Related Projects</a>
+                                    <a class="dropdown-item" href="{{ SITEURL }}/resources/">General Information</a>
+                                    <a class="dropdown-item" href="{{ SITEURL }}/resources/getting-started/">Getting Started</a>
+                                    <a class="dropdown-item" href="{{ SITEURL }}/resources/attackcon/">ATT&CKcon</a>
+                                    <a class="dropdown-item" href="{{ SITEURL }}/resources/working-with-attack/">Working with ATT&CK</a>
+                                    <a class="dropdown-item" href="{{ SITEURL }}/resources/faq/">FAQ</a>
+                                    <a class="dropdown-item" href="{{ SITEURL }}/resources/updates/">Updates</a>
+                                    <a class="dropdown-item" href="{{ SITEURL }}/resources/previous-versions/">Previous Versions</a>
+                                    <a class="dropdown-item" href="{{ SITEURL }}/resources/related-projects/">Related Projects</a>
                                 </div>
                             </li>
                         {% elif "Blog" == caption %}
-                            <li class="nav-item"><a href="{{ href|e }}" target="_blank" {% if id==active_page %} class="nav-link active"
-                            {% else %} class="nav-link" {% endif %}><b>{{ caption|e }}</b>&nbsp;<img src="/theme/images/external-site.svg"
+                            <li class="nav-item"><a href="{{ SITEURL }}{{ href|e }}" target="_blank" {% if id==active_page %} class="nav-link active"
+                            {% else %} class="nav-link" {% endif %}><b>{{ caption|e }}</b>&nbsp;<img src="{{ SITEURL }}/theme/images/external-site.svg"
                                                                                                                alt="External site" class="external-icon" /></a></li>
                         {% else %}
-                            <li class="nav-item"><a href="{{ href|e }}" {% if id==active_page %} class="nav-link active" {%
+                            <li class="nav-item"><a href="{{ SITEURL }}{{ href|e }}" {% if id==active_page %} class="nav-link active" {%
                                     else %} class="nav-link" {% endif %}><b>{{ caption|e }}</b></a></li>
                         {% endif %}
                     {% endfor %}
@@ -108,7 +108,7 @@
             <div class="col-4 col-sm-4 col-md-3">  
                 <div class="footer-center-responsive my-auto">
                     <a href="https://www.mitre.org" target="_blank" rel="noopener" aria-label="MITRE">
-                        <img src="/theme/images/mitrelogowhiteontrans.gif" class="mitre-logo-wtrans">
+                        <img src="{{ SITEURL }}/theme/images/attackwhiteontrans.gif" class="mitre-logo-wtrans">
                     </a>
                 </div>
             </div>
@@ -120,12 +120,12 @@
                 <div class="row">
                     <div class="col text-right">
                         <small>
-                            <a href="/resources/privacy" class="footer-link">Privacy Policy</a>
+                            <a href="{{ SITEURL }}/resources/privacy" class="footer-link">Privacy Policy</a>
                         </small>
                     </div>
                     <div class="col text-left">
                         <small>
-                            <a href="/resources/terms-of-use" class="footer-link">Terms of Use</a>
+                            <a href="{{ SITEURL }}/resources/terms-of-use" class="footer-link">Terms of Use</a>
                         </small>
                     </div>
                 </div>
@@ -136,12 +136,12 @@
                     <div class="mb-1">
                         <a href="https://twitter.com/MITREattack" class="btn btn-primary w-100">
                             <!-- <i class="fa fa-twitter"></i> -->
-                            <img src="/theme/images/twitter.png" class="mr-1 twitter-icon">
+                            <img src="{{ SITEURL }}/theme/images/twitter.png" class="mr-1 twitter-icon">
                             <b>@MITREattack</b>
                         </a>
                     </div>
                     <div class="">
-                        <a href="/contact" class="btn btn-primary w-100">
+                        <a href="{{ SITEURL }}/contact" class="btn btn-primary w-100">
                             Contact
                         </a>
                     </div>
@@ -153,13 +153,13 @@
 </div>
 {% block scripts %}
     <!--SCRIPTS-->
-    <script src="/theme/scripts/jquery-3.2.1.min.js"></script>
-    <script src="/theme/scripts/popper.min.js"></script>
-    <script src="/theme/scripts/bootstrap.min.js"></script>
-    <script src="/theme/scripts/site.js"></script>
-    <script src="/theme/scripts/lunr-2.3.3.js"></script>
-    <script src="/theme/scripts/search.js"></script>
-    <script src="/theme/scripts/index.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/jquery-3.2.1.min.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/popper.min.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/bootstrap.min.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/site.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/lunr-2.3.3.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/search.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/index.js"></script>
 {% endblock %}
 </body>
 

@@ -18,9 +18,9 @@
         <button class="btn btn-default dropdown-toggle heading-dropdown mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ENTERPRISE</button>
     {% endif %}        
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/tactics/enterprise">ENTERPRISE</a>
-        <a class="dropdown-item" href="/tactics/mobile">MOBILE</a>
-        <a class="dropdown-item" href="/tactics/pre">PRE-ATT&CK</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/tactics/enterprise">ENTERPRISE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/tactics/mobile">MOBILE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/tactics/pre">PRE-ATT&CK</a>
     </div>
     <div class="group-nav-desktop-view">
         {{ navigation.sidenav(parsed.side_menu_data, output_file) }}
@@ -29,8 +29,8 @@
 
 {% block innerright %}
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/tactics/{{parsed.domain}}/">Tactics</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/tactics/{{parsed.domain}}/">Tactics</a></li>
         {% if parsed.domain == "pre" %}
             <li class="breadcrumb-item">PRE-ATT&CK</li>
         {% elif parsed.domain == "mobile" %}
@@ -73,10 +73,10 @@
                             {% for tactic in parsed.tactics_table %}
                                 <tr>
                                 <td>
-                                    <a href="/tactics/{{tactic.tid}}">{{tactic.tid}}</a>
+                                    <a href="{{ SITEURL }}/tactics/{{tactic.tid}}">{{tactic.tid}}</a>
                                 </td>
                                 <td>
-                                    <a href="/tactics/{{tactic.tid}}">{{tactic.name}}</a>
+                                    <a href="{{ SITEURL }}/tactics/{{tactic.tid}}">{{tactic.name}}</a>
                                 </td>
                                 <td>
                                     {{tactic.description}}
@@ -95,5 +95,5 @@
 {% block scripts %}
     {{ super() }}
     <!--SCRIPTS-->
-    <script src="/theme/scripts/navigation.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/navigation.js"></script>
 {% endblock %}

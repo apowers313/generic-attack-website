@@ -19,7 +19,7 @@
     {{ super () }}
     <!--stopindex-->
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
         <li class="breadcrumb-item">Software</li>
     </ol>
     <div class="tab-pane fade show active" id="v-{{pages.title}}" role="tabpanel" aria-labelledby="v-{{pages.title}}-tab"></div>
@@ -51,7 +51,7 @@
                                 {% for row in parsed.software_table %}
                                     <tr>
                                         <td>
-                                            <a href="/software/{{row.id|upper}}"> {{row.name}} </a>
+                                            <a href="{{ SITEURL }}/software/{{row.id|upper}}"> {{row.name}} </a>
                                         </td>
                                         <td>
                                             {{row.aliases_list|join(", ")}}
@@ -77,5 +77,5 @@
 {% block scripts %}
     {{ super() }}
     <!--SCRIPTS-->
-    <script src="/theme/scripts/navigation.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/navigation.js"></script>
 {% endblock %}

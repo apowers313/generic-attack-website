@@ -19,9 +19,9 @@
         <button class="btn btn-default dropdown-toggle heading-dropdown mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ENTERPRISE</button>
     {% endif %}
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/techniques/enterprise">ENTERPRISE</a>
-        <a class="dropdown-item" href="/techniques/mobile">MOBILE</a>
-        <a class="dropdown-item" href="/techniques/pre">PRE-ATT&CK</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/techniques/enterprise">ENTERPRISE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/techniques/mobile">MOBILE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/techniques/pre">PRE-ATT&CK</a>
     </div>
     <div id="v-tab" role="tablist" aria-orientation="vertical">
         {{ navigation.sidenav(parsed.menu, output_file) }}  
@@ -32,8 +32,8 @@
 {% block innerright %}
 <!--stopindex-->
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/techniques/{{parsed.domain}}/">Techniques</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/techniques/{{parsed.domain}}/">Techniques</a></li>
         {% if parsed.domain == "pre" %}
             <li class="breadcrumb-item">PRE-ATT&CK</li>
         {% elif parsed.domain == "mobile" %}
@@ -76,10 +76,10 @@
                                 {% for row in parsed.technique_table %}
                                     <tr>
                                         <td>
-                                            <a href="/techniques/{{row.tid}}"> {{row.tid}} </a>
+                                            <a href="{{ SITEURL }}/techniques/{{row.tid}}"> {{row.tid}} </a>
                                         </td>
                                         <td>
-                                            <a href="/techniques/{{row.tid}}"> {{row.technique_name}} </a>
+                                            <a href="{{ SITEURL }}/techniques/{{row.tid}}"> {{row.technique_name}} </a>
                                         </td>
                                         <td>
                                             {% if row.deprecated %}
@@ -102,5 +102,5 @@
 {% block scripts %}
     {{ super() }}
     <!--SCRIPTS-->
-    <script src="/theme/scripts/navigation.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/navigation.js"></script>
 {% endblock %}   

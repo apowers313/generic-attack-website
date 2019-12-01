@@ -31,9 +31,9 @@ settings_dict = {
         ["/mitigations/", "mitigations", "Mitigations"],
         ["/groups/", "groups", "Groups"],
         ["/software/", "software", "Software"],
-        ["/resources/", "resources", "Resources"],
-        ["https://medium.com/mitre-attack/", "blog", "Blog"],
-        ["/resources/contribute", "contribute", "Contribute"]
+        # ["/resources/", "resources", "Resources"],
+        # ["https://medium.com/mitre-attack/", "blog", "Blog"],
+        # ["/resources/contribute", "contribute", "Contribute"]
     ]
 }
 platform_to_path = {

@@ -1,44 +1,44 @@
 
 // this is used for the previous-versions feature to prepend urls for index.json and search result links.
 // it gets parsed automatically when a version is preserved
-site_base_url = ""
+site_base_url = "https://apowers313.github.io/generic-attack";
 
 $.ajax({
     url: site_base_url + "/index.json",
     dataType: "json",
     success: function (data) {
-        idx = lunr.Index.load(data)
+        idx = lunr.Index.load(data);
     }
 });
 
 $(document).keypress(
     function(e){
-        if (e.which == '13') {
+        if (e.which == "13") {
             e.preventDefault();
         }
-});
+    });
 
 function search(str) {
-    str = str.replace(/\s+$/, '');
+    str = str.replace(/\s+$/, "");
 
     if (str == "") {
         $(".search-results").html("");
-        return
+        return;
     }
 
     var data = idx.search(str);
     if (data.length == 0) {
-        str = str.replace(/\\/g, '\\\\');
+        str = str.replace(/\\/g, "\\\\");
         data = idx.search(str);
         if (data.length == 0) {
             $(".search-results").html("No results found.");
-            $(".search-results").css('visibility', 'visible');
+            $(".search-results").css("visibility", "visible");
             return;
         }
     }
     var categories = { "techniques": [], "tactics": [], "groups": [], "software": [], "mitigations":[] };
 
-    $(".search-results").css('visibility', 'visible');
+    $(".search-results").css("visibility", "visible");
     $(".search-results").html("");
 
     var len = data.length;
@@ -78,7 +78,7 @@ function search(str) {
     for (var key in categories) {
         if (categories[key].length > 0) {
             $(".search-results").html($(".search-results").html() + "<span class='search-header'>" + key.charAt(0).toUpperCase() + key.slice(1) + "</span><hr class='search-divider' />");
-            $(".search-results").append("<div class='" + key + "'></div>")
+            $(".search-results").append("<div class='" + key + "'></div>");
             // true if search term found in description
             var descriptionHeader = true;
             for (var i = 0; i < categories[key].length; i++) {
@@ -92,26 +92,26 @@ function search(str) {
                     }
                     descriptionHeader = false;
                     $(".search-results").html($(".search-results").html() + categories[key][i]);
-                    }
                 }
             }
         }
     }
+}
 
-$("#search").on('input keypress', function (e) {
+$("#search").on("input keypress", function (e) {
     if (e.target.value != "") {
         clearTimeout(timeoutID);
         timeoutID = setTimeout(() => search(e.target.value), 500);
     } 
     else {
-        $(".search-results").css('visibility', 'hidden');
+        $(".search-results").css("visibility", "hidden");
     }
 });
 
 $(window).click(function() {
-    if(!$(event.target).closest('.search-results').length) {
-        if($('.search-results').is(":visible")) {
-            $('.search-results').css('visibility', 'hidden');
+    if(!$(event.target).closest(".search-results").length) {
+        if($(".search-results").is(":visible")) {
+            $(".search-results").css("visibility", "hidden");
         }
     }
 });

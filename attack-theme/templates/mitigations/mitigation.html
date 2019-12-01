@@ -20,8 +20,8 @@
         <button class="btn btn-default dropdown-toggle heading-dropdown mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MOBILE</button>
     {% endif %}
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/mitigations/enterprise">ENTERPRISE</a>
-        <a class="dropdown-item" href="/mitigations/mobile">MOBILE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/mitigations/enterprise">ENTERPRISE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/mitigations/mobile">MOBILE</a>
     </div>
     <div class="group-nav-desktop-view">
         {{ navigation.sidenav(parsed.side_menu_data, output_file) }}
@@ -35,8 +35,8 @@
 {% block innerright %}
     {{ super () }}
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/mitigations">Mitigations</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/mitigations">Mitigations</a></li>
         <li class="breadcrumb-item">{{parsed.name}}</li>
     </ol>
     <div class="tab-pane fade show active" id="v-{{pages.title}}" role="tabpanel" aria-labelledby="v-{{pages.title}}-tab"></div>
@@ -88,10 +88,10 @@
                                         {{row.domain}}
                                     </td>
                                     <td>
-                                        <a href="/techniques/{{row.tid}}">{{row.tid}}</a>                     
+                                        <a href="{{ SITEURL }}/techniques/{{row.tid}}">{{row.tid}}</a>                     
                                     </td>
                                     <td>
-                                        <a href="/techniques/{{row.tid}}">{{row.name}}</a>   
+                                        <a href="{{ SITEURL }}/techniques/{{row.tid}}">{{row.name}}</a>   
                                     </td>
                                     <td>
                                         {{row.descr}}
@@ -118,7 +118,7 @@
                                         <li>
                                             <span  id="scite-{{parsed.bottom_ref[j].number}}" class="scite-citation">
                                                 <span class="scite-citation-text">
-                                                    <a rel="nofollow" class="external text" name="scite-{{parsed.bottom_ref[j].number}}" href="{{parsed.bottom_ref[j].url}}" target="_blank">
+                                                    <a rel="nofollow" class="external text" name="scite-{{parsed.bottom_ref[j].number}}" href="{{ SITEURL }}{{parsed.bottom_ref[j].url}}" target="_blank">
                                                         {{parsed.bottom_ref[j].description}}
                                                     </a>
                                                 </span>
@@ -142,7 +142,7 @@
                                             <li>
                                                 <span  id="scite-{{parsed.bottom_ref[j].number}}" class="scite-citation">
                                                     <span class="scite-citation-text">
-                                                        <a rel="nofollow" class="external text" name="scite-{{parsed.bottom_ref[j].number}}" href="{{parsed.bottom_ref[j].url}}" target="_blank">
+                                                        <a rel="nofollow" class="external text" name="scite-{{parsed.bottom_ref[j].number}}" href="{{ SITEURL }}{{parsed.bottom_ref[j].url}}" target="_blank">
                                                             {{parsed.bottom_ref[j].description}}
                                                         </a>
                                                     </span>
@@ -170,5 +170,5 @@
 {% block scripts %}
     {{ super() }}
     <!--SCRIPTS-->
-    <script src="/theme/scripts/navigation.js"></script>
+    <script src="{{ SITEURL }}/theme/scripts/navigation.js"></script>
 {% endblock %} 

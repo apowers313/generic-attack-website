@@ -26,9 +26,9 @@
     {% endif %}
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/techniques/enterprise">ENTERPRISE</a>
-        <a class="dropdown-item" href="/techniques/mobile">MOBILE</a>
-        <a class="dropdown-item" href="/techniques/pre">PRE-ATT&CK</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/techniques/enterprise">ENTERPRISE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/techniques/mobile">MOBILE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/techniques/pre">PRE-ATT&CK</a>
     </div>
     <div id="v-tab" role="tablist" aria-orientation="vertical">
         {{ navigation.sidenav(parsed.menu, output_file) }}  
@@ -39,20 +39,20 @@
 {% block innerright %}
     {{ super () }}
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ SITEURL }}/">Home</a></li>
         {% if parsed.domain == 'enterprise' %}
-            <li class="breadcrumb-item"><a href="/techniques/enterprise">Techniques</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/techniques/enterprise">Techniques</a></li>
         {% elif parsed.domain == 'pre' %}
-            <li class="breadcrumb-item"><a href="/techniques/pre">Techniques</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/techniques/pre">Techniques</a></li>
         {% else %}
-            <li class="breadcrumb-item"><a href="/techniques/mobile">Techniques</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/techniques/mobile">Techniques</a></li>
         {% endif %}
         {% if parsed.domain == 'enterprise' %}
-            <li class="breadcrumb-item"><a href="/techniques/enterprise">Enterprise</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/techniques/enterprise">Enterprise</a></li>
         {% elif parsed.domain == 'pre' %}
-            <li class="breadcrumb-item"><a href="/techniques/pre">PRE-ATT&CK</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/techniques/pre">PRE-ATT&CK</a></li>
         {% else %}
-            <li class="breadcrumb-item"><a href="/techniques/mobile">Mobile</a></li>
+            <li class="breadcrumb-item"><a href="{{ SITEURL }}/techniques/mobile">Mobile</a></li>
         {% endif %}
         <li class="breadcrumb-item">{{parsed.name}}</li>
     </ol>
@@ -120,14 +120,14 @@
                                     {% if parsed.capecs %}
                                         <div class="card-data"><span class="h5 card-title">CAPEC ID:</span>
                                             {% for capec in parsed.capecs %}
-                                                <a href="{{capec.url}}" target="_blank">{{capec.id}}{% if not loop.last %},{% endif %}</a> 
+                                                <a href="{{ SITEURL }}{{capec.url}}" target="_blank">{{capec.id}}{% if not loop.last %},{% endif %}</a> 
                                             {% endfor %}
                                         </div>
                                     {% endif %}
                                     {% if parsed.mtcs %}
                                         <div class="card-data"><span class="h5 card-title">MTC ID:</span>
                                             {% for mtc in parsed.mtcs %}
-                                                <a href="{{mtc.url}}" target="_blank">{{mtc.id}}{% if not loop.last %},{% endif %}</a> 
+                                                <a href="{{ SITEURL }}{{mtc.url}}" target="_blank">{{mtc.id}}{% if not loop.last %},{% endif %}</a> 
                                             {% endfor %}
                                         </div>
                                     {% endif %}
@@ -154,10 +154,10 @@
                                 {% for row in parsed.rel_techniques_table %}
                                     <tr>
                                         <td>
-                                            <a href="/tactics/{{row.tactic_id}}"> {{row.tactic_name}} </a>
+                                            <a href="{{ SITEURL }}/tactics/{{row.tactic_id}}"> {{row.tactic_name}} </a>
                                         </td>
                                         <td> 
-                                            <a href="/techniques/{{row.technique_id}}"> {{row.technique_name}} </a>
+                                            <a href="{{ SITEURL }}/techniques/{{row.technique_id}}"> {{row.technique_name}} </a>
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -177,7 +177,7 @@
                                 {% for example in parsed.examples_table %}
                                     <tr>
                                         <td>
-                                            <a href="/{{example.path}}/{{example.id}}"> {{example.name}} </a>
+                                            <a href="{{ SITEURL }}/{{example.path}}/{{example.id}}"> {{example.name}} </a>
                                         </td>
                                         <td> 
                                             {{example.descr}}
@@ -201,7 +201,7 @@
                                     {% for mit in parsed.mitigation_table %}
                                         <tr>
                                             <td>
-                                                <a href="/mitigations/{{mit.mid}}"> {{mit.name}} </a>
+                                                <a href="{{ SITEURL }}/mitigations/{{mit.mid}}"> {{mit.name}} </a>
                                             </td>
                                             <td> 
                                                 {{mit.descr}}
@@ -257,7 +257,7 @@
                                             <li>
                                                 <span  id="scite-{{parsed.bottom_ref[j].number}}" class="scite-citation">
                                                     <span class="scite-citation-text">
-                                                        <a rel="nofollow" class="external text" name="scite-{{parsed.bottom_ref[j].number}}" href="{{parsed.bottom_ref[j].url}}" target="_blank">
+                                                        <a rel="nofollow" class="external text" name="scite-{{parsed.bottom_ref[j].number}}" href="{{ SITEURL }}{{parsed.bottom_ref[j].url}}" target="_blank">
                                                             {{parsed.bottom_ref[j].description}}
                                                         </a>
                                                     </span>
@@ -281,7 +281,7 @@
                                                 <li>
                                                     <span  id="scite-{{parsed.bottom_ref[j].number}}" class="scite-citation">
                                                         <span class="scite-citation-text">
-                                                            <a rel="nofollow" class="external text" name="scite-{{parsed.bottom_ref[j].number}}" href="{{parsed.bottom_ref[j].url}}" target="_blank">
+                                                            <a rel="nofollow" class="external text" name="scite-{{parsed.bottom_ref[j].number}}" href="{{ SITEURL }}{{parsed.bottom_ref[j].url}}" target="_blank">
                                                                 {{parsed.bottom_ref[j].description}}
                                                             </a>
                                                         </span>
@@ -310,5 +310,5 @@
 {% block scripts %}
 {{ super() }}
 <!--SCRIPTS-->
-<script src="/theme/scripts/navigation.js"></script>
+<script src="{{ SITEURL }}/theme/scripts/navigation.js"></script>
 {% endblock %}   
