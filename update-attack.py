@@ -82,7 +82,8 @@ def update(args):
 
     # Grab shared resources and stix data
     if args.build:
-        get_stix_data(args)
+        # AEP: commented out to prevent grabbing example-attack.json
+        #get_stix_data(args)
         generate.grab_resources()
     
     # Generate index markdown
