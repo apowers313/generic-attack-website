@@ -13,16 +13,18 @@ from . import util
 settings_dict = {
     "banner_enabled": "false",
     "banner_message": "<a href='https://www.mitre.org/attackcon-streamed-live' target='_blank'> Register to stream ATT&CKcon 2.0 October 29-30</a>",
-    "domains": ["pre-attack", "enterprise-attack", "mobile-attack"],
+    "domains": ["pre-attack", "enterprise-attack", "mobile-attack", "example-attack"],
     "source_names": [
         "mitre-pre-attack", 
         "mitre-attack", 
-        "mitre-mobile-attack"
+        "mitre-mobile-attack",
+        "example-attack"
     ],
     "domain_aliases": [
         ["PRE-ATT&CK", "pre"], 
         ["Enterprise", "enterprise"], 
-        ["Mobile", "mobile"]
+        ["Mobile", "mobile"],
+        ["Example", "example"]
     ],
     "navigation_menu": [
         ["/matrices/", "matrices", "Matrices"],
@@ -56,6 +58,11 @@ index_matrix = {
     "matrix": "enterprise-attack",
     "platforms": ["Windows", "macOS", "Linux"]
 }
+# index_matrix = {
+#     "name": "Example Matrix",
+#     "descr": "An example attack matrix", # if specified, adds a subtitle to the index page matrix
+#     "matrix": "example-attack"
+# }
 
 # The tree of matricies on /matrices/
 matrices = [
@@ -65,6 +72,14 @@ matrices = [
         "platforms": [],
         "matrix": "pre-attack",
         "descr": "Below are the tactics and techniques representing the MITRE PRE-ATT&CK Matrix&trade;.",
+        "subtypes": [],
+    },
+    {
+        "name": "Example",
+        "path": "example",
+        "platforms": [],
+        "matrix": "example-attack",
+        "descr": "An example attack matrix.",
         "subtypes": [],
     },
     {
@@ -207,7 +222,8 @@ stix_directory = data_directory + "/stix"
 attack_path = {
     'enterprise-attack': stix_directory + "/enterprise-attack.json",
     'mobile-attack': stix_directory + "/mobile-attack.json",
-    'pre-attack': stix_directory + "/pre-attack.json"
+    'pre-attack': stix_directory + "/pre-attack.json",
+    'example-attack': stix_directory + "/example-attack.json"
 }
 
 # Constants used for generated layers
@@ -293,7 +309,8 @@ attack_index_md = ("Title: ATT&CK Overview \n"
 last_attack_path = {
     'enterprise-attack': stix_directory + "/enterprise-attack_old.json",
     'mobile-attack': stix_directory + "/mobile-attack_old.json",
-    'pre-attack': stix_directory + "/pre-attack_old.json"
+    'pre-attack': stix_directory + "/pre-attack_old.json",
+    'example-attack': stix_directory + "/example-attack_old.json"
 }
 
 # Constants used by mitigation.py
@@ -413,6 +430,9 @@ redirects_domain = {
         {'old': "Technique_matrix_ID", 'new': "/matrices/mobile"},
         {'old': "Using_the_API", 'new': "/resources/working-with-attack"},
         {'old': "Without_Adversary_Device_Access_Technique_Matrix", 'new': "/matrices/mobile"}
+    ],
+    'example-attack': [
+        {'old': "Supercalifragilisticexpialidocious", 'new': "/easter/egg"}
     ]
 }
 
@@ -432,7 +452,8 @@ redirects_images_path = "w/img_auth.php/"
 redirects_paths = {
     'enterprise-attack': "wiki/", 
     'mobile-attack': "mobile/index.php/", 
-    'pre-attack': "pre-attack/index.php/"
+    'pre-attack': "pre-attack/index.php/",
+    "example-attack": "example/"
 }
 
 # Constants used by software.py
@@ -626,6 +647,7 @@ def init_shared_data():
     global malware_using_technique
     global groups_using_technique
     global ms
+    global SITEURL
 
     domains = settings_dict["domains"]
     source_names = settings_dict["source_names"]
