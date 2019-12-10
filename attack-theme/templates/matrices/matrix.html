@@ -6,6 +6,8 @@
     {% set title = "Matrix - PRE-ATT&CK | MITRE ATT&CK&trade;" -%}
 {% elif parsed.domain == "mobile" %}
     {% set title = "Matrix - Mobile | MITRE ATT&CK&trade;" -%}
+{% elif parsed.domain == "example" %}
+    {% set title = "Matrix - Example" -%}
 {% else %}
     {% if parsed.platform %}
         {% set title = "Matrix - Enterprise - " + parsed.platform + " | MITRE ATT&CK&trade;" -%}

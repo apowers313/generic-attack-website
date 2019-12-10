@@ -1,9 +1,9 @@
 {% set BANNER_ENABLED = "false" %}
 {% set BANNER_MESSAGE = "<a href='https://www.mitre.org/attackcon-streamed-live' target='_blank'> Register to stream ATT&CKcon 2.0 October 29-30</a>" %}
 {% set NAVIGATION_MENU = [['/matrices/', 'matrices', 'Matrices'], ['/tactics/', 'tactics', 'Tactics'], ['/techniques/', 'techniques', 'Techniques'], ['/mitigations/', 'mitigations', 'Mitigations'], ['/groups/', 'groups', 'Groups'], ['/software/', 'software', 'Software']] -%}
-{% set DOMAINS = [['PRE-ATT&CK', 'pre'], ['Enterprise', 'enterprise'], ['Mobile', 'mobile']] -%}
+{% set DOMAINS = [['PRE-ATT&CK', 'pre'], ['Enterprise', 'enterprise'], ['Mobile', 'mobile'], ['Example', 'example']] -%}
 {% set active_page = active_page|default('index') -%}
-{% set title = title|default('MITRE ATT&CK&trade;') -%}
+{% set title = title|default('ATTACK!') -%}
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -115,7 +115,7 @@
             <div class="col-2 col-sm-2 footer-responsive-break"></div>
             <div class="col-6 col-sm-6 text-center">  
                 <p>
-                    Copyright © 2015-2019, The MITRE Corporation. MITRE ATT&CK and ATT&CK are trademarks of The MITRE Corporation.
+                    blah blah copyright blah.
                 </p>
                 <div class="row">
                     <div class="col text-right">
@@ -136,13 +136,12 @@
                     <div class="mb-1">
                         <a href="https://twitter.com/MITREattack" class="btn btn-primary w-100">
                             <!-- <i class="fa fa-twitter"></i> -->
-                            <img src="{{ SITEURL }}/theme/images/twitter.png" class="mr-1 twitter-icon">
-                            <b>@MITREattack</b>
+                            <b>BUTTON!</b>
                         </a>
                     </div>
                     <div class="">
                         <a href="{{ SITEURL }}/contact" class="btn btn-primary w-100">
-                            Contact
+                            <b>BUTTON 2!</b>
                         </a>
                     </div>
                 </div>

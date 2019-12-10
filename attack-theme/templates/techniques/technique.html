@@ -6,6 +6,8 @@
     {% set title = parsed.name + " - PRE-ATT&CK | MITRE ATT&CK&trade;" -%}
 {% elif parsed.domain == "mobile" %}
     {% set title = parsed.name + " - Mobile | MITRE ATT&CK&trade;" -%}
+{% elif parsed.domain == "example" %}
+    {% set title = "Tactics - Example" -%}
 {% else %} 
     {% set title = parsed.name + " - Enterprise | MITRE ATT&CK&trade;" -%}
 {% endif %} 
@@ -21,6 +23,8 @@
         <button class="btn btn-default dropdown-toggle heading-dropdown mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ENTERPRISE</button>
     {% elif parsed.domain == "mobile" %}
         <button class="btn btn-default dropdown-toggle heading-dropdown mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MOBILE</button>
+    {% elif parsed.domain == "example" %}
+        <button class="btn btn-default dropdown-toggle heading-dropdown mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EXAMPLE</button>
     {% else %}
         <button class="btn btn-default dropdown-toggle heading-dropdown mb-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PRE-ATT&CK</button>
     {% endif %}
@@ -28,6 +32,7 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="{{ SITEURL }}/techniques/enterprise">ENTERPRISE</a>
         <a class="dropdown-item" href="{{ SITEURL }}/techniques/mobile">MOBILE</a>
+        <a class="dropdown-item" href="{{ SITEURL }}/techniques/example">EXAMPLE</a>
         <a class="dropdown-item" href="{{ SITEURL }}/techniques/pre">PRE-ATT&CK</a>
     </div>
     <div id="v-tab" role="tablist" aria-orientation="vertical">
