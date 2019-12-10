@@ -247,8 +247,8 @@ def get_techniques_used_by_software_data(software, reference_list, next_referenc
     else:
         techniques_used_by_software = config.techniques_used_by_tools.get(software['id'])
 
+    technique_list = {}
     if techniques_used_by_software:
-        technique_list = {}
 
         for technique in techniques_used_by_software:
 
