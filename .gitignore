@@ -22,3 +22,8 @@ content/pages/resources/contribute.md
 content/pages/resources/resources.md
 content/pages/resources/previous.md
 content/pages/index.md
+
+*~
+
+data/stix/example-attack.json
+data/stix/example-attack_old.json
